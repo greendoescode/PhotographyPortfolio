@@ -1,5 +1,6 @@
   <script>
     import "./app.css";
+    const year = new Date().getFullYear();
   </script>
   
   <svelte:head>
@@ -28,7 +29,7 @@
           href="/portfolio">Explore Portfolio</a>
       </div>
     </header> 
-    <p class="text-white text-center py-3">&copy; 2024 Leo Hanney. All rights reserved.</p>
+    <p class="text-white text-center py-3">&copy; {year} Leo Hanney. All rights reserved.</p>
   
   </main>
   

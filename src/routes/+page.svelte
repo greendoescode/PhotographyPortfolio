@@ -1,9 +1,10 @@
 <script>
-    import "../app.css";
-    import { onMount } from 'svelte';
+  import "../app.css";
+  import { onMount } from 'svelte';
     onMount(() => {
-    });
-  </script>
+  });
+  const year = new Date().getFullYear();
+</script>
   
   <svelte:head>
     <meta charset="UTF-8" />
@@ -34,6 +35,6 @@
         </a>
       </div>
     </header>
-    <p class="text-white text-center py-3">&copy; 2024 Leo Hanney. All rights reserved.</p>
+    <p class="text-white text-center py-3">&copy; {year} Leo Hanney. All rights reserved.</p>
   </main>
   
