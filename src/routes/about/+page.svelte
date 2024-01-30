@@ -12,7 +12,7 @@
     <meta property="og:image" content="https://leohanney.com/images/_DSC2618.jpg" />
   </svelte:head>
   
-  <main class="bg-cover bg-center" style=" background-image: url('https://leohanney.com/images/_DSC3786.jpg');">
+  <main class="bg-cover bg-center" style=" background-image: url('https://leohanney.com/images/_DSC3786.jpg'); background: #f00;">
   
     <nav class="bg-opacity-75 text-white p-4 absolute top-0 w-full flex justify-center items-center">
       <a class="nav-link mr-5" href="https://leohanney.com/about" style="color: white;">About</a>
