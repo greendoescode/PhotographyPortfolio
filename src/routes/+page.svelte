@@ -36,6 +36,6 @@
         </a>
       </div>
     </header>
-    <p class="text-white text-center py-3">&copy; {year} Leo Hanney. All rights reserved.</p>
+    <p class="text-white text-center py-3" style="margin-top:-3rem">&copy; {year} Leo Hanney. All rights reserved.</p>
   </main>
   
