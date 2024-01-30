@@ -45,6 +45,8 @@
     document.body.style.backgroundSize = 'cover';
     document.body.style.backgroundRepeat = 'no-repeat';
     });
+
+    const year = new Date().getFullYear();
 </script>
 
 <svelte:head>
@@ -77,6 +79,6 @@
         </div>
     </section>
 
-    <footer class="text-white text-center py-3">&copy; 2024 Leo Hanney. All rights reserved.</footer>
+    <footer class="text-white text-center py-3">&copy; {year} Leo Hanney. All rights reserved.</footer>
 </div>
 

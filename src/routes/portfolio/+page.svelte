@@ -39,6 +39,8 @@
       return { ...collection, thumbnailUrl };
     }));
   });
+
+  const year = new Date().getFullYear();
 </script>
 
 <svelte:head>
@@ -69,7 +71,7 @@
   </div>
 
   <footer class="bg-dark text-white text-center py-3">
-    <p>&copy; 2024 Leo Hanney. All rights reserved.</p>
+    <p>&copy; {year} Leo Hanney. All rights reserved.</p>
   </footer>
 
 </main>
