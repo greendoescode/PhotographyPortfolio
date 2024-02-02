@@ -58,7 +58,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Twilight Toboganning - Leo Hanney</title>
     <meta property="og:title" content="Twilight Toboganning - Leo Hanney" />
-    <meta property="og:description" content="Some photos I took at mendip skis twilight toboganning! Was really fun and something new for me to shoot." />
+    <meta property="og:description" content="Shoot for Mendip Activity Centers Twilight Toboganning" />
     <meta property="og:image" content="https://leohanney.com/images/_DSC2618.jpg" />
 </svelte:head>
 
@@ -72,7 +72,7 @@
     <section id="portfolio" class="py-5">
         <div class="container mx-auto mt-20 text-center">
             <h1 class="text-5xl font-bold text-white mb-4">Twilight Toboganning</h1>
-            <p class="text-lg font-bold text-white mb-8">Some photos I took at mendip skis twilight toboganning! Was really fun and something new for me to shoot.</p>
+            <p class="text-lg font-bold text-white mb-8">Shoot for Mendip Activity Centers Twilight Toboganning.</p>
             <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
                 {#each collections[0].images as image, index}
                     <div>

@@ -7,15 +7,11 @@
       link: "https://leohanney.com/portfolio/mendipski"
     },
     {
-      name: "Whirlwind Band",
-      link: "https://leohanney.com/portfolio/whirlwindband"
-    },
-    {
       name: "Twilight Toboganning",
       link: "https://leohanney.com/portfolio/twilightoboganning"
     },
     {
-      name: "Weston-super-mare",
+      name: "Ghosts!",
       link: "https://leohanney.com/portfolio/ghosts"
     }
   ];

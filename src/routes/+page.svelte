@@ -15,7 +15,7 @@
     <meta property="og:image" content="https://leohanney.com/images/_DSC2618.jpg" />
   </svelte:head>
   
-  <main class="bg-cover bg-center" style="position: relative; background: #f00; background-image: url('https://leohanney.com/images/_DSC2618.jpg');">
+  <main class="bg-cover bg-center content-center" style = " background: #f00; background-image: url('/images/_DSC2618.jpg'); background-position: center; 	background-size: cover;">
     <nav class="bg-opacity-75 text-white p-4 absolute top-0 w-full flex justify-center items-center">
       <a class="nav-link mr-5" href="/about" style="color: white;">About</a>
       <a class="navbar-brand text-2xl font-semibold" href="https://leohanney.com" style="color: white;">Leo Hanney</a>
@@ -35,6 +35,6 @@
         </a>
       </div>
     </header>
-    <p class="text-white text-center py-3">&copy; {year} Leo Hanney. All rights reserved.</p>
+    <p class="text-white text-center py-3" style="margin-top:-3rem">&copy; {year} Leo Hanney. All rights reserved.</p>
   </main>
   
