@@ -18,8 +18,6 @@
             'https://leohanney.com/images/mendipski/image10.avif',
             'https://leohanney.com/images/mendipski/image11.avif',
             'https://leohanney.com/images/mendipski/image12.avif',
-            'https://leohanney.com/images/mendipski/image13.avif',
-            'https://leohanney.com/images/mendipski/image14.avif'
         ]
       }
     ];
