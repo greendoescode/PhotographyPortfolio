@@ -59,7 +59,7 @@
 
 <div>
     <nav class="bg-opacity-75 text-white p-4 absolute top-0 w-full flex justify-center items-center">
-        <a class="nav-link mr-5" href="/about" style="color: white;">About</a>
+        <a class="nav-link mr-5" href="https://leohanney.com/services" style="color: white;">Services</a>
         <a class="navbar-brand text-2xl font-semibold" href="https://leohanney.com" style="color: white;">Leo Hanney</a>
         <a class="nav-link ml-5" href="https://leohanney.com/portfolio" style="color: white;">Portfolio</a>
     </nav>
