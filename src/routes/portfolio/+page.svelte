@@ -65,8 +65,6 @@
     {/each}
   </div>
 
-  <footer class="bg-dark text-white text-center py-3">
-    <p class="text-white text-center py-3" style="margin-top:-3rem">&copy; {year} Leo Hanney. All rights reserved.</p>
-  </footer>
+  <p class="text-white text-center py-3" style="margin-top:-3rem">&copy; {year} Leo Hanney. All rights reserved.</p>
 
 </main>
