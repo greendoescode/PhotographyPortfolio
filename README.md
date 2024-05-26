@@ -52,3 +52,4 @@ Contributions are welcome! If you have any suggestions or improvements, feel fre
 ## License
 
 This project is licensed under the Apache License. See the [LICENSE](./LICENSE) file for more details.
+None of the images shown in this repository are included in the license.
