@@ -84,7 +84,7 @@
     <title>Weston-super-mare - Leo Hanney</title>
     <meta property="og:title" content="Mendip Ski - Leo Hanney" />
     <meta property="og:description" content="2023 Season" />
-    <meta property="og:image" content="/images/_DSC2618.jpg" />
+    <meta property="og:image" content="/images/_DSC2618.avif" />
 </svelte:head>
 
 <div>

@@ -6,7 +6,7 @@
 
   onMount(() => {
     const highQualityImage = new Image();
-    highQualityImage.src = '/images/_DSC2618.jpg';
+    highQualityImage.src = '/images/_DSC2618.avif';
     highQualityImage.onload = () => {
       bgImageLoaded = true;
     };
@@ -21,11 +21,11 @@
   <title>Leo Hanney - Photographer</title>
   <meta property="og:title" content="Leo Hanney - Photographer" />
   <meta property="og:description" content="Hey! I'm Leo, a photographer with experience in Events, Landscape and Street!" />
-  <meta property="og:image" content="https://leohanney.com/images/_DSC2618.jpg" />
-  <link rel="preload" href="/images/_DSC2618.jpg" as="image">
+  <meta property="og:image" content="https://leohanney.com/images/_DSC2618.avif" />
+  <link rel="preload" href="/images/_DSC2618.avif" as="image">
 </svelte:head>
 
-<main class="bg-cover bg-center content-center" style="background-image: url('/images/low-quality.jpg');">
+<main class="bg-cover bg-center content-center" style="background-image: url('/images/low-quality.avif');">
   <nav class="bg-opacity-75 text-white p-4 absolute top-0 w-full flex justify-center items-center">
     <a class="nav-link mr-5" href="/about" style="color: white;">About</a>
     <a class="navbar-brand text-2xl font-semibold" href="/" style="color: white;">Leo Hanney</a>
@@ -54,6 +54,6 @@
   }
 
   .bg-image-loaded {
-    background-image: url('/images/_DSC2618.jpg') !important;
+    background-image: url('/images/_DSC2618.avif') !important;
   }
 </style>
