@@ -102,7 +102,7 @@
     <title>Twilight Toboganning - Leo Hanney</title>
     <meta property="og:title" content="Twilight Toboganning - Leo Hanney" />
     <meta property="og:description" content="Shoot for Mendip Activity Centers Twilight Toboganning" />
-    <meta property="og:image" content="/images/_DSC2618.jpg" />
+    <meta property="og:image" content="/images/_DSC2618.avif" />
 </svelte:head>
 
 <div>

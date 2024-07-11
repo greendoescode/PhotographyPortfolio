@@ -46,7 +46,7 @@
 
 <main
 	class="bg-cover bg-center"
-	style="background-image: url('https://leohanney.com/images/_DSC3786.jpg');"
+	style="background-image: url('https://leohanney.com/images/_DSC3786.avif');"
 >
 
     <nav class="bg-opacity-75 text-white p-4 absolute top-0 w-full flex justify-center items-center">

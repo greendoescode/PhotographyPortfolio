@@ -99,7 +99,7 @@
     <title>Ghosts! - Leo Hanney</title>
     <meta property="og:title" content="Ghosts - Leo Hanney" />
     <meta property="og:description" content="Some of the halloweeny photos I took of my brothers in sheets." />
-    <meta property="og:image" content="/images/_DSC2618.jpg" />
+    <meta property="og:image" content="/images/_DSC2618.avif" />
 </svelte:head>
 
 <div>
