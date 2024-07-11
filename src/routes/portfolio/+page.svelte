@@ -1,18 +1,18 @@
 <script>
   import { onMount } from 'svelte';
-  import "./app.css";
+  import '$lib/global.css';
   const collections = [
     {
       name: "Mendip Ski",
-      link: "https://leohanney.com/portfolio/mendipski"
+      link: "/portfolio/mendipski"
     },
     {
       name: "Twilight Toboganning",
-      link: "https://leohanney.com/portfolio/twilightoboganning"
+      link: "/portfolio/twilightoboganning"
     },
     {
       name: "Ghosts!",
-      link: "https://leohanney.com/portfolio/ghosts"
+      link: "/portfolio/ghosts"
     }
   ];
 
@@ -44,12 +44,15 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 </svelte:head>
 
-<main class="bg-cover bg-center" style="background: #f00; position: relative; background-image: url('https://leohanney.com/images/_DSC3786.jpg');">
+<main
+	class="bg-cover bg-center"
+	style="background-image: url('https://leohanney.com/images/_DSC3786.jpg');"
+>
 
     <nav class="bg-opacity-75 text-white p-4 absolute top-0 w-full flex justify-center items-center">
-        <a class="nav-link mr-5" href="https://leohanney.com/services" style="color: white;">Services</a>
-        <a class="navbar-brand text-2xl font-semibold" href="https://leohanney.com" style="color: white;">Leo Hanney</a>
-        <a class="nav-link ml-5" href="https://leohanney.com/portfolio" style="color: white;">Portfolio</a>
+        <a class="nav-link mr-5" href="/about" style="color: white;">About</a>
+        <a class="navbar-brand text-2xl font-semibold" href="/" style="color: white;">Leo Hanney</a>
+        <a class="nav-link ml-5" href="/portfolio" style="color: white;">Portfolio</a>
     </nav>
 
   <div class="container mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 bg-cover bg-center min-h-screen">

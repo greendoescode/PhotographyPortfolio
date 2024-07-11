@@ -1,37 +1,37 @@
 <script>
-    import "../app.css";
+    import '$lib/global.css';
     import { onMount } from 'svelte';
 
     let collections = [
         {
             name: 'Ghosts',
             images: [
-                'https://leohanney.com/images/ghosts/image1.avif',
-                'https://leohanney.com/images/ghosts/image2.avif',
-                'https://leohanney.com/images/ghosts/image3.avif',
-                'https://leohanney.com/images/ghosts/image4.avif',
-                'https://leohanney.com/images/ghosts/image5.avif',
-                'https://leohanney.com/images/ghosts/image6.avif',
-                'https://leohanney.com/images/ghosts/image7.avif',
-                'https://leohanney.com/images/ghosts/image8.avif',
-                'https://leohanney.com/images/ghosts/image9.avif',
-                'https://leohanney.com/images/ghosts/image10.avif',
-                'https://leohanney.com/images/ghosts/image11.avif',
-                'https://leohanney.com/images/ghosts/image12.avif',
-                'https://leohanney.com/images/ghosts/image15.avif',
-                'https://leohanney.com/images/ghosts/image16.avif',
-                'https://leohanney.com/images/ghosts/image17.avif',
-                'https://leohanney.com/images/ghosts/image19.avif',
-                'https://leohanney.com/images/ghosts/image20.avif',
-                'https://leohanney.com/images/ghosts/image21.avif',
-                'https://leohanney.com/images/ghosts/image22.avif',
-                'https://leohanney.com/images/ghosts/image23.avif',
-                'https://leohanney.com/images/ghosts/image24.avif',
-                'https://leohanney.com/images/ghosts/image25.avif',
-                'https://leohanney.com/images/ghosts/image26.avif',
-                'https://leohanney.com/images/ghosts/image27.avif',
-                'https://leohanney.com/images/ghosts/image28.avif',
-                'https://leohanney.com/images/ghosts/image18.avif'
+                '/images/ghosts/image1.avif',
+                '/images/ghosts/image2.avif',
+                '/images/ghosts/image3.avif',
+                '/images/ghosts/image4.avif',
+                '/images/ghosts/image5.avif',
+                '/images/ghosts/image6.avif',
+                '/images/ghosts/image7.avif',
+                '/images/ghosts/image8.avif',
+                '/images/ghosts/image9.avif',
+                '/images/ghosts/image10.avif',
+                '/images/ghosts/image11.avif',
+                '/images/ghosts/image12.avif',
+                '/images/ghosts/image15.avif',
+                '/images/ghosts/image16.avif',
+                '/images/ghosts/image17.avif',
+                '/images/ghosts/image19.avif',
+                '/images/ghosts/image20.avif',
+                '/images/ghosts/image21.avif',
+                '/images/ghosts/image22.avif',
+                '/images/ghosts/image23.avif',
+                '/images/ghosts/image24.avif',
+                '/images/ghosts/image25.avif',
+                '/images/ghosts/image26.avif',
+                '/images/ghosts/image27.avif',
+                '/images/ghosts/image28.avif',
+                '/images/ghosts/image18.avif'
             ]
         }
     ];
@@ -99,14 +99,14 @@
     <title>Ghosts! - Leo Hanney</title>
     <meta property="og:title" content="Ghosts - Leo Hanney" />
     <meta property="og:description" content="Some of the halloweeny photos I took of my brothers in sheets." />
-    <meta property="og:image" content="https://leohanney.com/images/_DSC2618.jpg" />
+    <meta property="og:image" content="/images/_DSC2618.jpg" />
 </svelte:head>
 
 <div>
     <nav class="bg-opacity-75 text-white p-4 absolute top-0 w-full flex justify-center items-center">
-        <a class="nav-link mr-5" href="https://leohanney.com/services" style="color: white;">Services</a>
-        <a class="navbar-brand text-2xl font-semibold" href="https://leohanney.com" style="color: white;">Leo Hanney</a>
-        <a class="nav-link ml-5" href="https://leohanney.com/portfolio" style="color: white;">Portfolio</a>
+        <a class="nav-link mr-5" href="/about" style="color: white;">About</a>
+        <a class="navbar-brand text-2xl font-semibold" href="" style="color: white;">Leo Hanney</a>
+        <a class="nav-link ml-5" href="/portfolio" style="color: white;">Portfolio</a>
     </nav>
 
     <section id="portfolio" class="py-5">
