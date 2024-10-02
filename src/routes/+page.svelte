@@ -1,59 +1,76 @@
 <script>
-  import '$lib/global.css';
-  import { onMount } from 'svelte';
-
-  let bgImageLoaded = false;
-
-  onMount(() => {
-    const highQualityImage = new Image();
-    highQualityImage.src = '/images/_DSC2618.avif';
-    highQualityImage.onload = () => {
-      bgImageLoaded = true;
-    };
-  });
-
-  const year = new Date().getFullYear();
+  import "$lib/global.css";
+  import { fade } from "svelte/transition";
 </script>
 
 <svelte:head>
+  <title>Leo Hanney</title>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Leo Hanney - Photographer</title>
-  <meta property="og:title" content="Leo Hanney - Photographer" />
-  <meta property="og:description" content="Hey! I'm Leo, a photographer with experience in Events, Landscape and Street!" />
-  <meta property="og:image" content="https://leohanney.com/images/_DSC2618.avif" />
-  <link rel="preload" href="/images/_DSC2618.avif" as="image">
 </svelte:head>
 
-<main class="bg-cover bg-center content-center" style="background-image: url('/images/low-quality.avif');">
-  <nav class="bg-opacity-75 text-white p-4 absolute top-0 w-full flex justify-center items-center">
-    <a class="nav-link mr-5" href="/about" style="color: white;">About</a>
-    <a class="navbar-brand text-2xl font-semibold" href="/" style="color: white;">Leo Hanney</a>
-    <a class="nav-link ml-5" href="/portfolio" style="color: white;">Portfolio</a>
-  </nav>
+<div class="absolute inset-0 bg-gradient-to-r from-transparent via-green-400 to-green-950 bg-[length:1200%_1200%] animate-gradient-animate z-[-1]" transition:fade={{ duration: 250 }}></div>
 
-  <header class="bg-cover bg-center min-h-screen flex flex-col justify-center items-center" class:bg-image-loaded={bgImageLoaded}>
-    <div class="container mx-auto text-center">
-      <h1 class="text-5xl font-bold text-white">Leo Hanney</h1>
-      <p class="text-xl text-white mt-4">Each frame tells a unique story.</p>
-      <br />
+<div
+  class="flex items-center justify-center min-h-screen px-4 py-12 bg-black bg-opacity-50"
+  transition:fade={{ duration: 250 }}
+>
+  <div class="text-center max-w-3xl w-full">
+    <h1 class="text-4xl sm:text-5xl font-extrabold text-white mb-8">
+      Welcome!
+    </h1>
+    <p
+      class="text-base sm:text-lg text-white mb-8 sm:mb-12"
+      transition:fade={{ duration: 250 }}
+    >
+      This page acts as a forwarder for my websites
+    </p>
+    <div class="flex flex-wrap justify-center gap-4 mb-12">
       <a
-        class="btn btn-primary btn-lg mt-4 px-8 py-2 text-white font-bold rounded-full bg-gray-700 hover:bg-gray-800 transition duration-300 ease-in-out"
-        href="/portfolio"
+        href="https://volaris.leohanney.com"
+        class="bg-white text-black font-semibold py-3 px-6 rounded-lg shadow-md hover:bg-gray-200 transition duration-300"
+        transition:fade={{ duration: 250 }}
       >
-        Explore Portfolio
+        Volaris
+      </a>
+      <a
+        href="/photography"
+        class="bg-green-600 text-white font-semibold py-3 px-6 rounded-lg shadow-md hover:bg-green-500 transition duration-300"
+        transition:fade={{ duration: 250 }}
+      >
+        Photography
       </a>
     </div>
-  </header>
-  <p class="text-white text-center py-3" style="margin-top:-3rem">&copy; {year} Leo Hanney. All rights reserved.</p>
-</main>
+    <p
+      class="text-base sm:text-lg text-white mb-6"
+      transition:fade={{ duration: 250 }}
+    >
+      <a
+        href="https://github.com/greendoescode"
+        class="text-green-400 hover:underline">Github</a
+      >
+      or
+      <a href="https://github.com/volar-is" class="text-green-400 hover:underline">Volaris Github</a> for
+      the latest updates.
+    </p>
+  </div>
+</div>
 
+<!-- Tailwind CSS Custom Animation -->
 <style>
-  .bg-cover {
-    transition: background-image 1.5s ease-in-out;
+  @keyframes gradientAnimation {
+    0% {
+      background-position: 0% 50%;
+    }
+    50% {
+      background-position: 100% 50%;
+    }
+    100% {
+      background-position: 0% 50%;
+    }
   }
 
-  .bg-image-loaded {
-    background-image: url('/images/_DSC2618.avif') !important;
+  .animate-gradient-animate {
+    animation: gradientAnimation 15s ease infinite;
   }
 </style>
