@@ -28,16 +28,7 @@
 				</div>
 				<h2 class="text-3xl font-bold text-gray-800 mb-4">About Me</h2>
 				<p class="text-gray-700 text-lg leading-relaxed mb-4">
-					Hello! I'm Leo Hanney, a passionate photographer based in Weston-super-mare, with only under a year or two of experience. My journey into photography began with a deep admiration for the incredible images others created, sparking my curiosity and driving me to explore this art form.
-				</p>
-				<p class="text-gray-700 text-lg leading-relaxed mb-4">
-					One moment in my journey was when I had the opportunity to borrow someone else's camera. It opened up a new world for me, allowing me to create my own images and develop my style. Since then, I've immersed myself in various genres, from landscape photography to documenting events and capturing sports.
-				</p>
-				<p class="text-gray-700 text-lg leading-relaxed mb-4">
-					While I don't follow a strict approach to photography, I find joy in the spontaneity and diversity of shooting events. It's thrilling to interact with different people and capture their emotions and interactions, creating a different story with every image.
-				</p>
-				<p class="text-gray-700 text-lg leading-relaxed mb-4">
-					Besides photography, music is another passion of mine. The thought of drumming brings me immense joy as an outlet outside of my other hobbies.
+					Hello! I'm Leo Hanney, and honestly, lorem ipsum text goes here.
 				</p>
 				<p class="text-gray-700 text-lg leading-relaxed">
 					Thank you for visiting my website :D
