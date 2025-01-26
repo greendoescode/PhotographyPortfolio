@@ -24,6 +24,7 @@ after:bg-stone-700"
     </h1>
     <a href="https://volaris.leohanney.com">Volaris</a>
     <a href="/photography">Photography</a>
+    <a href="/personal">Personal</a>
     <a href="https://github.com/greendoescode">Github</a>
   </div>
 </body>
