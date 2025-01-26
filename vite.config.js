@@ -1,11 +1,8 @@
-import { sveltekit } from "@sveltejs/kit/vite";
-import { defineConfig } from "vite";
-import tailwindcss from "@tailwindcss/vite";
-defineConfig({ plugins: [tailwindcss()] });
+import { sveltekit } from '@sveltejs/kit/vite';
 
 /** @type {import('vite').UserConfig} */
 const config = {
-  plugins: [sveltekit()],
+	plugins: [sveltekit()]
 };
 
 export default config;

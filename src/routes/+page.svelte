@@ -19,6 +19,7 @@
     <h1 class="text-4xl sm:text-5xl font-extrabold text-white mb-8">
       Welcome!
     </h1>
+<<<<<<< HEAD
     <p
       class="text-base sm:text-lg text-white mb-8 sm:mb-12"
       transition:fade={{ duration: 250 }}
@@ -53,6 +54,11 @@
       <a href="https://github.com/volar-is" class="text-green-400 hover:underline">Volaris Github</a> for
       the latest updates.
     </p>
+=======
+    <a href="https://volaris.leohanney.com">Volaris</a>
+    <a href="/photography">Photography</a>
+    <a href="https://github.com/greendoescode">Github</a>
+>>>>>>> parent of fd65247 (fuck it)
   </div>
 </div>
 
