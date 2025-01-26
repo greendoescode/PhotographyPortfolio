@@ -1,82 +1,76 @@
 <script>
   import "$lib/global.css";
-  import { fade } from 'svelte/transition';
+  import { fade } from "svelte/transition";
 </script>
 
 <svelte:head>
   <title>Leo Hanney</title>
   <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 </svelte:head>
 
-<body
-  class="bg-cover bg-center min-h-screen flex flex-col justify-center items-center"
+<div class="absolute inset-0 bg-gradient-to-r from-transparent via-green-400 to-green-950 bg-[length:1200%_1200%] animate-gradient-animate z-[-1]" transition:fade={{ duration: 250 }}></div>
+
+<div
+  class="flex items-center justify-center min-h-screen px-4 py-12 bg-black bg-opacity-50"
   transition:fade={{ duration: 250 }}
 >
-  <div class="container justify-center">
-    <h1
-      class="relative w-[max-content] font-mono
-before:absolute before:inset-0 before:animate-typewriter
-before:bg-black
-after:absolute after:inset-0 after:w-[0.125em] after:animate-caret
-after:bg-stone-700"
-    >
-      Welcome to My Page
+  <div class="text-center max-w-3xl w-full">
+    <h1 class="text-4xl sm:text-5xl font-extrabold text-white mb-8">
+      Welcome!
     </h1>
-    <a href="https://volaris.leohanney.com">Volaris</a>
-    <a href="/photography">Photography</a>
-    <a href="/personal">Personal</a>
-    <a href="https://github.com/greendoescode">Github</a>
+    <p
+      class="text-base sm:text-lg text-white mb-8 sm:mb-12"
+      transition:fade={{ duration: 250 }}
+    >
+      This page acts as a forwarder for my websites
+    </p>
+    <div class="flex flex-wrap justify-center gap-4 mb-12">
+      <a
+        href="https://volaris.leohanney.com"
+        class="bg-white text-black font-semibold py-3 px-6 rounded-lg shadow-md hover:bg-gray-200 transition duration-300"
+        transition:fade={{ duration: 250 }}
+      >
+        Volaris
+      </a>
+      <a
+        href="/photography"
+        class="bg-green-600 text-white font-semibold py-3 px-6 rounded-lg shadow-md hover:bg-green-500 transition duration-300"
+        transition:fade={{ duration: 250 }}
+      >
+        Photography
+      </a>
+    </div>
+    <p
+      class="text-base sm:text-lg text-white mb-6"
+      transition:fade={{ duration: 250 }}
+    >
+      <a
+        href="https://github.com/greendoescode"
+        class="text-green-400 hover:underline">Github</a
+      >
+      or
+      <a href="https://github.com/volar-is" class="text-green-400 hover:underline">Volaris Github</a> for
+      the latest updates.
+    </p>
   </div>
-</body>
+</div>
 
+<!-- Tailwind CSS Custom Animation -->
 <style>
-  html,
-  body {
-    margin: 0;
-    padding: 0;
-    height: 100%;
-    width: 100%;
-    font-family: Arial, sans-serif;
-    color: #e0e0e0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background: #000;
+  @keyframes gradientAnimation {
+    0% {
+      background-position: 0% 50%;
+    }
+    50% {
+      background-position: 100% 50%;
+    }
+    100% {
+      background-position: 0% 50%;
+    }
   }
 
-  .container {
-    display: flex;
-    flex-direction: column;
-    padding: 20px;
-    border: 2px solid #00ff00;
-    background: #000;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.8);
-  }
-
-  h1 {
-    padding-left: 10px;
-    font-size: 2em;
-    text-transform: uppercase;
-    margin-bottom: 20px;
-    color: #00ff00;
-    text-shadow: 0 0 5px #00ff00;
-  }
-
-  a {
-    color: #00ff00;
-    text-decoration: none;
-    margin: 5px 10px;
-    padding: 5px 10px;
-    border: 1px solid #00ff00;
-    border-radius: 4px;
-    font-size: 1em;
-    transition:
-      background-color 0.3s,
-      color 0.3s;
-  }
-
-  a:hover {
-    background-color: #00ff00;
-    color: #000;
+  .animate-gradient-animate {
+    animation: gradientAnimation 15s ease infinite;
   }
 </style>
