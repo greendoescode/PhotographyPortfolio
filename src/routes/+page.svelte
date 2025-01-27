@@ -1,6 +1,6 @@
 <script>
   import "$lib/global.css";
-  import { fade } from 'svelte/transition';
+  import { fade } from "svelte/transition";
 </script>
 
 <svelte:head>
@@ -14,18 +14,24 @@
 >
   <div class="container justify-center">
     <h1
-      class="relative w-[max-content] font-mono
-before:absolute before:inset-0 before:animate-typewriter
-before:bg-black
-after:absolute after:inset-0 after:w-[0.125em] after:animate-caret
-after:bg-stone-700"
+      class="relative w-[max-content] font-mono before:absolute before:inset-0 before:animate-typewriter before:bg-black after:absolute after:inset-0 after:w-[0.125em] after:animate-caret after:bg-stone-700"
     >
       Welcome to My Page
     </h1>
-    <a href="https://volaris.leohanney.com">Volaris</a>
-    <a href="/photography">Photography</a>
-    <a href="/personal">Personal</a>
-    <a href="https://github.com/greendoescode">Github</a>
+    <a
+      href="https://volaris.leohanney.com"
+      target="_blank"
+      rel="noopener noreferrer">Volaris</a
+    >
+    <a href="/photography" target="_blank" rel="noopener noreferrer"
+      >Photography</a
+    >
+    <a href="/personal" target="_blank" rel="noopener noreferrer">Personal</a>
+    <a
+      href="https://github.com/greendoescode"
+      target="_blank"
+      rel="noopener noreferrer">Github</a
+    >
   </div>
 </body>
 
