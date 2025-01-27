@@ -2,7 +2,7 @@
   import '$lib/global.css';
   import { onMount } from 'svelte';
 
-  let bgImageLoaded = false;
+  let bgImageLoaded = $state(false);
 
   onMount(() => {
     const highQualityImage = new Image();

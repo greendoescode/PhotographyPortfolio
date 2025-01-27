@@ -27,7 +27,7 @@
     return response.ok ? `https://leohanney.com/images/${portfolioName}/image1.avif` : null;
   }
 
-  let collectionItems = [];
+  let collectionItems = $state([]);
 
   onMount(async () => {
     collectionItems = await Promise.all(collections.map(async collection => {
