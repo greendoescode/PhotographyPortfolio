@@ -8,8 +8,8 @@
   <meta charset="UTF-8" />
 </svelte:head>
 
-<body
-  class="bg-cover bg-center min-h-screen flex flex-col justify-center items-center"
+<div
+  class="divbody bg-cover bg-center min-h-screen flex flex-col justify-center items-center"
   transition:fade|global={{ duration: 250 }}
 >
   <div class="container justify-center">
@@ -33,10 +33,10 @@
       rel="noopener noreferrer">Github</a
     >
   </div>
-</body>
+</div>
 
 <style>
-  body {
+  .divbody {
     margin: 0;
     padding: 0;
     height: 100%;
