@@ -12,6 +12,7 @@
       "/blog/post-2",
       "/blog/post-3",
       "/timetravel",
+      "chickenconspiracy",
     ];
     const randomIndex = Math.floor(Math.random() * pages.length);
     return pages[randomIndex];
@@ -31,8 +32,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 </svelte:head>
 
-<body
-  class="bg-cover bg-center min-h-screen flex flex-col justify-center items-center weird-background"
+<div
+  class="divbody bg-cover bg-center min-h-screen flex flex-col justify-center items-center weird-background"
 >
   <div class="container justify-center weird-container">
     <h1
@@ -68,32 +69,31 @@
         <li>
           <a
             href="/personal/timetravel"
-            onmouseover={playHoverSound}
+            onmouseover={playRandomSound}
             onclick={playRandomSound}>Click for Time Travel Predictions</a
           >
         </li>
         <li>
           <a
             href="/personal/chickenconspiracy"
-            onmouseover={playHoverSound}
+            onmouseover={playRandomSound}
             onclick={playRandomSound}>The Great Chicken Conspiracy</a
           >
         </li>
         <li>
           <a
             href={getRandomPage()}
-            onmouseover={playHoverSound}
+            onmouseover={playRandomSound}
             onclick={playRandomSound}>Surprise Me!</a
           >
         </li>
       </ul>
     </section>
   </div>
-</body>
+</div>
 
 <style>
-  html,
-  body {
+  .divbody {
     margin: 0;
     padding: 0;
     height: 100%;

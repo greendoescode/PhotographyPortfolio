@@ -76,8 +76,8 @@
   <title>Time Travel Predictions</title>
 </svelte:head>
 
-<body
-  class="bg-cover bg-center min-h-screen flex flex-col justify-center items-center weird-background"
+<div
+  class="divbody bg-cover bg-center min-h-screen flex flex-col justify-center items-center weird-background"
   transition:fade|global={{ duration: 250 }}
 >
   <div class="container justify-center weird-container">
@@ -95,7 +95,7 @@
       <a href="/personal">Go Back</a>
     </div>
   </div>
-</body>
+</div>
 
 <style>
   .text-box-bg {
@@ -113,7 +113,7 @@
     transition: background-color 0.3s ease;
   }
 
-  body {
+  .divbody {
     font-family: "Courier New", monospace;
     color: #e0e0e0;
     background: #000;
