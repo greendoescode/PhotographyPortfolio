@@ -35,7 +35,7 @@
       <u><h2 class="section-title">What will you do?</h2></u>
       <ul class="interaction-list">
         <li>
-          <a href="/" onmouseover={playHoverSound}>Stop admiring the rat</a>
+          <a href="/personal" onmouseover={playHoverSound}>Stop admiring the rat</a>
         </li>
         <li>
           <a href="/personal/chickenconspiracy" onmouseover={playHoverSound}

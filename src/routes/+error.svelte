@@ -9,12 +9,9 @@
 
   const getRandomPage = () => {
     const pages = [
-      "/blog/post-1",
-      "/blog/post-2",
-      "/blog/post-3",
-      "/timetravel",
-      "/chickenconspiracy",
-      "/halorat"
+      "/personal/timetravel",
+      "/personal/chickenconspiracy",
+      "/personal/halorat"
     ];
     const randomIndex = Math.floor(Math.random() * pages.length);
     return pages[randomIndex];
