@@ -12,7 +12,8 @@
       "/blog/post-2",
       "/blog/post-3",
       "/timetravel",
-      "chickenconspiracy",
+      "/chickenconspiracy",
+      "/halorat",
     ];
     const randomIndex = Math.floor(Math.random() * pages.length);
     return pages[randomIndex];

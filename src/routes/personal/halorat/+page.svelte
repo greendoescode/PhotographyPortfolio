@@ -1,64 +1,46 @@
 <script>
-  import { page } from "$app/state";
   import "$lib/global.css";
 
   const playHoverSound = () => {
     const audio = new Audio("/beep.mp3");
     audio.play();
   };
-
-  const getRandomPage = () => {
-    const pages = [
-      "/blog/post-1",
-      "/blog/post-2",
-      "/blog/post-3",
-      "/timetravel",
-      "/chickenconspiracy",
-      "/halorat"
-    ];
-    const randomIndex = Math.floor(Math.random() * pages.length);
-    return pages[randomIndex];
-  };
 </script>
 
 <svelte:head>
-  <title>{page.status} - Lost in the Weird Wonderland</title>
+  <title>Halo 3 Rat - A Tribute</title>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 </svelte:head>
 
 <div
-  class="divbody bg-cover bg-center min-h-screen flex flex-col justify-center items-center weird-background"
+  class="divbody bg-cover bg-center min-h-screen flex flex-col justify-center items-center"
 >
   <div class="container justify-center weird-container">
-    <h1
-      class="relative w-full max-w-[800px] font-mono
-                before:absolute before:inset-0 before:animate-typewriter
-                before:bg-black
-                after:absolute after:inset-0 after:w-[0.125em] after:animate-caret
-                after:bg-stone-700 flicker-text heading-align-left"
-    >
-      {page.status} - You are lost.
+    <h1 class="relative w-full max-w-[800px] font-mono">
+      Behold the Halo 3 Rat.
     </h1>
 
+    <img
+      src="/halorat.webp"
+      alt="Halo 3 Rat"
+      class="halo-rat-image mt-6 shadow-xl border-2 border-solid border-stone-700"
+    />
+
     <p class="description text-center text-lg mt-4">
-      It seems you've wandered too far into the unknown. No worries, though!
+      This is Halo 3 Rat, a perfect rat.
     </p>
 
-    <section class="options-section mt-8">
-      <u><h2 class="section-title">What would you like to do?</h2></u>
-      <ul class="options-list">
+    <section class="interaction-section mt-8 text-center">
+      <u><h2 class="section-title">What will you do?</h2></u>
+      <ul class="interaction-list">
         <li>
-          <a href="/" onmouseover={playHoverSound}>Go back to safety (Home)</a>
+          <a href="/" onmouseover={playHoverSound}>Stop admiring the rat</a>
         </li>
         <li>
-          <a
-            href={getRandomPage()}
-            onmouseover={playHoverSound}
-            onclick={playHoverSound}
+          <a href="/personal/chickenconspiracy" onmouseover={playHoverSound}
+            >Uncover the Chicken Conspiracy</a
           >
-            Explore a random page
-          </a>
         </li>
       </ul>
     </section>
@@ -78,26 +60,6 @@
     align-items: center;
     background: #000;
     overflow: hidden;
-  }
-
-  .weird-background {
-    background: url("/giphy4.gif") no-repeat center center fixed;
-    background-size: cover;
-    animation:
-      weirdAnimation 20s infinite,
-      gentleFlicker 5s infinite;
-  }
-
-  @keyframes weirdAnimation {
-    0% {
-      background-color: #ff00ff;
-    }
-    50% {
-      background-color: #00ffff;
-    }
-    100% {
-      background-color: #ff00ff;
-    }
   }
 
   @keyframes gentleFlicker {
@@ -131,7 +93,7 @@
     display: flex;
     flex-direction: column;
     padding: 20px;
-    border: 2px solid #ff00ff;
+    border: 2px solid #523052;
     background: #000;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.8);
     max-width: 800px;
@@ -142,37 +104,47 @@
     animation-play-state: paused;
   }
 
-
   h1 {
     font-size: 2em;
     text-transform: uppercase;
     margin-bottom: 20px;
-    color: #ff00ff;
+    color: #523052;
     text-shadow:
-      0 0 15px #ff00ff,
-      0 0 30px #ff00ff;
-    text-align: left;
+      0 0 15px #523052,
+      0 0 30px #523052;
+    text-align: center;
     white-space: normal;
     word-wrap: break-word;
     overflow-wrap: break-word;
   }
 
-  .options-list a:hover {
+  .halo-rat-image {
+    max-width: 100%;
+    height: auto;
+    border-radius: 12px;
+    transition: transform 0.3s ease;
+  }
+
+  .halo-rat-image:hover {
+    transform: scale(1.1);
+  }
+
+  .interaction-list a:hover {
     color: #00ff00;
     transform: scale(1.2);
     text-decoration: underline;
   }
 
-  .options-section {
+  .interaction-section {
     margin-top: 40px;
   }
 
-  .options-list {
+  .interaction-list {
     list-style: none;
     padding: 0;
   }
 
-  .options-list li {
+  .interaction-list li {
     margin: 10px 0;
   }
 
