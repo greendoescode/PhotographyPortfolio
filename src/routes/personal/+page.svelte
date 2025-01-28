@@ -19,7 +19,7 @@
   };
 
   const playRandomSound = () => {
-    const sounds = ["/sound1.mp3", "/sound2.mp3", "/sound3.mp3"];
+    const sounds = ["/sound1.mp3", "/sound2.mp3"];
     const randomIndex = Math.floor(Math.random() * sounds.length);
     const audio = new Audio(sounds[randomIndex]);
     audio.play();
