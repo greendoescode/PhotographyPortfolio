@@ -1,6 +1,47 @@
 <script>
   import "$lib/global.css";
 
+  let isMobile = false;
+  let showMessage = false;
+
+  // Function to get the value of a cookie by name
+  const getCookie = (name) => {
+    const value = `; ${document.cookie}`;
+    const parts = value.split(`; ${name}=`);
+    if (parts.length === 2) return parts.pop().split(";").shift();
+    return null;
+  };
+
+  // Function to set a cookie
+  const setCookie = (name, value, days) => {
+    const date = new Date();
+    date.setTime(date.getTime() + days * 24 * 60 * 60 * 1000); // Expiry date
+    const expires = `expires=${date.toUTCString()}`;
+    document.cookie = `${name}=${value}; ${expires}; path=/`;
+  };
+
+  // Check if the user is on a mobile device and if they've dismissed the message
+  const checkMobile = () => {
+    isMobile = typeof window !== "undefined" && window.innerWidth <= 768;
+    showMessage = isMobile && !getCookie("dismissedMobileMessage"); // Only show message if not dismissed
+  };
+
+  // Update the mobile check on mount and on window resize
+  import { onMount } from "svelte";
+  onMount(() => {
+    checkMobile(); // Check on page load
+
+    if (typeof window !== "undefined") {
+      window.addEventListener("resize", checkMobile); // Listen for resize events
+    }
+  });
+
+  // Function to dismiss the message and set the cookie for 30 days
+  const dismissMessage = () => {
+    showMessage = false;
+    setCookie("dismissedMobileMessage", "true", 30); // Set cookie to expire in 30 days
+  };
+
   const playHoverSound = () => {
     const audio = new Audio("/beep.mp3");
     audio.play();
@@ -30,9 +71,14 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 </svelte:head>
 
-<div
-  class="divbody bg-cover bg-center min-h-screen flex flex-col justify-center items-center weird-background"
->
+<div class="divbody bg-cover bg-center min-h-screen flex flex-col justify-center items-center weird-background">
+  {#if showMessage}
+    <div class="mobile-message">
+      <p>This site is better experienced on desktop.</p>
+      <button onclick={dismissMessage} class="dismiss-btn">Got it</button>
+    </div>
+  {/if}
+
   <div class="container justify-center weird-container">
     <h1
       class="relative w-full max-w-[800px] font-mono
@@ -45,15 +91,13 @@
     </h1>
 
     <section class="blog-section">
-      <u><h2 class="section-title">Ludicrous Blog Posts</h2></u>
+      <u><h2 class="section-title">Ludicrous Blog Posts (COMING SOON)</h2></u>
       <ul class="blog-posts">
         <li>
           <a href="/blog/post-1" onmouseover={playHoverSound}>Lorem 1</a>
         </li>
         <li>
-          <a href="/blog/post-2" onmouseover={playHoverSound}
-            >I Took Photos of Invisible Things</a
-          >
+          <a href="/blog/post-2" onmouseover={playHoverSound}>I Took Photos of Invisible Things</a>
         </li>
         <li>
           <a href="/blog/post-3" onmouseover={playHoverSound}>Lorem 2</a>
@@ -65,26 +109,32 @@
       <u><h2 class="section-title">Explore Random Content</h2></u>
       <ul class="random-pages">
         <li>
-          <a
-            href="/personal/timetravel"
-            onmouseover={playRandomSound}
-            onclick={playRandomSound}>Click for Time Travel Predictions</a
-          >
+          <a href="/personal/timetravel" onmouseover={playRandomSound} onclick={playRandomSound}>Click for Time Travel Predictions</a>
         </li>
         <li>
-          <a
-            href="/personal/chickenconspiracy"
-            onmouseover={playRandomSound}
-            onclick={playRandomSound}>The Great Chicken Conspiracy</a
-          >
+          <a href="/personal/chickenconspiracy" onmouseover={playRandomSound} onclick={playRandomSound}>The Great Chicken Conspiracy</a>
         </li>
         <li>
-          <a
-            href={getRandomPage()}
-            onmouseover={playRandomSound}
-            onclick={playRandomSound}>Surprise Me!</a
-          >
+          <a href={getRandomPage()} onmouseover={playRandomSound} onclick={playRandomSound}>Surprise Me!</a>
         </li>
+      </ul>
+    </section>
+
+    <section>
+      <ul>
+        <li>
+          <footer class="text-left text-xs">
+            <a href="/personal/credits">Credits</a>
+          </footer>
+        </li>
+        <li>
+          <footer class="text-left text-xs">
+            <a href="/personal/contact">Say Hi</a>
+          </footer>
+        </li>
+        <footer class="text-left text-xs">
+          <a href="mailto:me@leohanney.com">Have an idea? Let me know.</a>
+        </footer>
       </ul>
     </section>
   </div>
@@ -240,6 +290,33 @@
 
   .random-pages li {
     margin: 10px 0;
+  }
+
+  .mobile-message {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    background-color: rgba(0, 0, 0, 0.8);
+    color: #ff00ff;
+    text-align: center;
+    padding: 10px;
+    font-size: 1.2em;
+    z-index: 1000;
+  }
+
+  .dismiss-btn {
+    margin-left: 20px;
+    padding: 5px 10px;
+    background-color: #ff00ff;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    font-size: 1em;
+  }
+
+  .dismiss-btn:hover {
+    background-color: #00ff00;
   }
 
   @media (max-width: 768px) {
