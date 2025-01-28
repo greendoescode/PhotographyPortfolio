@@ -13,7 +13,7 @@
   let animationFrame;
   let isPaused = false;
 
-  // Split the username into individual letters
+
   const splitText = "imgreenonline".split("");
 
   const isMobile = typeof window !== "undefined" && window.innerWidth <= 768;
@@ -58,7 +58,7 @@
     });
   };
 
-  // Function to get random color
+
   const getRandomColor = () => {
     const letters = '0123456789ABCDEF';
     let color = '#';
@@ -152,10 +152,10 @@
 
   @keyframes moveIn {
     0% {
-      transform: translateX(-100%); /* Start from the left side */
+      transform: translateX(-100%); 
     }
     100% {
-      transform: translateX(0); /* End in its original position */
+      transform: translateX(0); 
     }
   }
 

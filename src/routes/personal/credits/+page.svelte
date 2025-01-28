@@ -1,5 +1,5 @@
 <script>
-  import { onMount } from "svelte"; // Import onMount
+  import { onMount } from "svelte"; 
   import "$lib/global.css";
 
   const playHoverSound = () => {
@@ -13,21 +13,18 @@
   let animationFrame;
   let isPaused = false;
 
-  // Function to check if we're in the browser and if it's a mobile screen
   const isMobile = typeof window !== "undefined" && window.innerWidth <= 768;
 
   const moveContainer = () => {
-    if (isPaused || isMobile) return; // Pause animation if hovered or on mobile
+    if (isPaused || isMobile) return; 
 
     const containerRect = container.getBoundingClientRect();
     const screenWidth = window.innerWidth;
     const screenHeight = window.innerHeight;
 
-    // Update position
     position.x += velocity.x;
     position.y += velocity.y;
 
-    // Check for collision with screen edges
     if (position.x + containerRect.width >= screenWidth || position.x <= 0) {
       velocity.x *= -1;
     }
@@ -35,10 +32,8 @@
       velocity.y *= -1;
     }
 
-    // Apply position to container
     container.style.transform = `translate(${position.x}px, ${position.y}px)`;
 
-    // Request the next frame
     animationFrame = requestAnimationFrame(moveContainer);
   };
 
@@ -53,7 +48,6 @@
 
   onMount(() => {
     if (typeof window !== "undefined") {
-      // Only run this in the browser
       container = document.querySelector(".container");
       container.addEventListener("mouseenter", pauseAnimation);
       container.addEventListener("mouseleave", resumeAnimation);
@@ -61,12 +55,12 @@
         moveContainer();
       }
 
-      // Listen for window resize to update isMobile dynamically
+
       window.addEventListener("resize", () => {
         if (window.innerWidth <= 768) {
-          isPaused = true; // Pause animation if resized to mobile
+          isPaused = true; 
         } else {
-          isPaused = false; // Resume animation if resized back to desktop
+          isPaused = false; 
           moveContainer();
         }
       });

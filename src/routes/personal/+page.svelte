@@ -4,7 +4,6 @@
   let isMobile = false;
   let showMessage = false;
 
-  // Function to get the value of a cookie by name
   const getCookie = (name) => {
     const value = `; ${document.cookie}`;
     const parts = value.split(`; ${name}=`);
@@ -12,34 +11,31 @@
     return null;
   };
 
-  // Function to set a cookie
   const setCookie = (name, value, days) => {
     const date = new Date();
-    date.setTime(date.getTime() + days * 24 * 60 * 60 * 1000); // Expiry date
+    date.setTime(date.getTime() + days * 24 * 60 * 60 * 1000);
     const expires = `expires=${date.toUTCString()}`;
     document.cookie = `${name}=${value}; ${expires}; path=/`;
   };
 
-  // Check if the user is on a mobile device and if they've dismissed the message
   const checkMobile = () => {
     isMobile = typeof window !== "undefined" && window.innerWidth <= 768;
-    showMessage = isMobile && !getCookie("dismissedMobileMessage"); // Only show message if not dismissed
+    showMessage = isMobile && !getCookie("dismissedMobileMessage");
   };
 
-  // Update the mobile check on mount and on window resize
   import { onMount } from "svelte";
   onMount(() => {
-    checkMobile(); // Check on page load
+    checkMobile(); 
 
     if (typeof window !== "undefined") {
-      window.addEventListener("resize", checkMobile); // Listen for resize events
+      window.addEventListener("resize", checkMobile); 
     }
   });
 
-  // Function to dismiss the message and set the cookie for 30 days
+
   const dismissMessage = () => {
     showMessage = false;
-    setCookie("dismissedMobileMessage", "true", 30); // Set cookie to expire in 30 days
+    setCookie("dismissedMobileMessage", "true", 30); 
   };
 
   const playHoverSound = () => {
