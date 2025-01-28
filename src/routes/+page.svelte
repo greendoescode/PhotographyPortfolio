@@ -18,15 +18,9 @@
     >
       Welcome to My Page
     </h1>
-    <a
-      href="https://volaris.leohanney.com"
-      target="_blank"
-      rel="noopener noreferrer">Volaris</a
-    >
-    <a href="/photography" target="_blank" rel="noopener noreferrer"
-      >Photography</a
-    >
-    <a href="/personal" target="_blank" rel="noopener noreferrer">Personal</a>
+    <a href="https://volaris.leohanney.com">Volaris</a>
+    <a href="/photography">Photography</a>
+    <a href="/personal">Personal</a>
     <a
       href="https://github.com/greendoescode"
       target="_blank"
