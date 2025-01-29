@@ -98,8 +98,7 @@
         </li>
         <li class="mb-2">
           <a
-            href="https://twitter.com/fvmsfvms"
-            target="_blank"
+            href="https://www.youtube.com/watch?v=dQw4w9WgXcQ"
             class="hover:text-green-400 text-green-300 text-base"
             onmouseover={playHoverSound}
           >
