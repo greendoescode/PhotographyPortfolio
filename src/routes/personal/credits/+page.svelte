@@ -103,7 +103,7 @@
             class="hover:text-green-400 text-green-300 text-base"
             onmouseover={playHoverSound}
           >
-            fvm$ - The Halo Rat guy.
+            FVM$ - The Halo Rat guy.
           </a>
         </li>
       </ul>
