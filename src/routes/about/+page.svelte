@@ -15,10 +15,10 @@
   const year = new Date().getFullYear();
 
   const audioTracks = [
-    "/audio/snippet1.flac",
-    "/audio/snippet2.flac",
-    "/audio/snippet3.flac",
-    "/audio/snippet4.flac"
+    "/audio/snippet1.mp3",
+    "/audio/snippet2.mp3",
+    "/audio/snippet3.mp3",
+    "/audio/snippet4.mp3"
   ];
 
   function getTrackOfTheDay() {
