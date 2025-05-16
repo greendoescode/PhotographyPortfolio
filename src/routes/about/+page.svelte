@@ -132,15 +132,15 @@
     </h1>
 
     <p class="mb-6 text-lg leading-relaxed max-w-prose">
-      I'm really into <strong>drumming and music</strong> — The Strokes are my go-to.
-      People say I'm pretty kind, but I can be a bit full-on sometimes. Life's complicated
+      I'm really into <strong>drumming and music</strong> — The Strokes are my fav.
+      People say I'm pretty kind, but I can be a bit full-on sometimes. Life's weird
       like that.
     </p>
 
     <p class="mb-6 text-lg leading-relaxed max-w-prose">
       Most days I'm just chilling, listening to music, tying my laces (it's a
-      skill), and loving buses — yeah, buses are a big hobby. <em
-        >YOLO, right?</em
+      skill), and loving buses — yes, buses <strong>ARE</strong> a hobby. <em
+        >YOLO, yk?</em
       >
     </p>
   </section>
