@@ -83,7 +83,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Weston-super-mare - Leo Hanney</title>
     <meta property="og:title" content="Mendip Ski - Leo Hanney" />
-    <meta property="og:description" content="2023 Season" />
+    <meta property="og:description" content="The first shoot I did at Mendip Ski" />
     <meta property="og:image" content="/images/_DSC2618.avif" />
 </svelte:head>
 
@@ -97,7 +97,7 @@
     <section id="portfolio" class="py-5">
         <div class="container mx-auto mt-20 text-center">
             <h1 class="text-5xl font-bold text-white mb-4">Mendip Ski</h1>
-            <p class="text-lg font-bold text-white mb-8">2023 Season</p>
+            <p class="text-lg font-bold text-white mb-8">The first shoot I did at Mendip Ski</p>
             <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
                 {#each collections[0].images as image, index}
                     <div>
