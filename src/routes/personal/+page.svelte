@@ -25,17 +25,16 @@
 
   import { onMount } from "svelte";
   onMount(() => {
-    checkMobile(); 
+    checkMobile();
 
     if (typeof window !== "undefined") {
-      window.addEventListener("resize", checkMobile); 
+      window.addEventListener("resize", checkMobile);
     }
   });
 
-
   const dismissMessage = () => {
     showMessage = false;
-    setCookie("dismissedMobileMessage", "true", 30); 
+    setCookie("dismissedMobileMessage", "true", 30);
   };
 
   const playHoverSound = () => {
@@ -67,7 +66,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 </svelte:head>
 
-<div class="divbody bg-cover bg-center min-h-screen flex flex-col justify-center items-center weird-background">
+<div
+  class="divbody bg-cover bg-center min-h-screen flex flex-col justify-center items-center weird-background"
+>
   {#if showMessage}
     <div class="mobile-message">
       <p>This site is better experienced on desktop.</p>
@@ -87,13 +88,15 @@
     </h1>
 
     <section class="blog-section">
-      <u><h2 class="section-title">Ludicrous Blog Posts (COMING SOON)</h2></u>
+      <u><h2 class="section-title">BLOG POSTS (COMING SOON)</h2></u>
       <ul class="blog-posts">
         <li>
           <a href="/blog/post-1" onmouseover={playHoverSound}>Lorem 1</a>
         </li>
         <li>
-          <a href="/blog/post-2" onmouseover={playHoverSound}>I Took Photos of Invisible Things</a>
+          <a href="/blog/post-2" onmouseover={playHoverSound}
+            >I Took Photos of Invisible Things</a
+          >
         </li>
         <li>
           <a href="/blog/post-3" onmouseover={playHoverSound}>Lorem 2</a>
@@ -105,13 +108,32 @@
       <u><h2 class="section-title">Explore Random Content</h2></u>
       <ul class="random-pages">
         <li>
-          <a href="/personal/timetravel" onmouseover={playRandomSound} onclick={playRandomSound}>Click for Time Travel Predictions</a>
+          <a
+            href="/personal/timetravel"
+            onmouseover={playRandomSound}
+            onclick={playRandomSound}>Click for Time Travel Predictions</a
+          >
         </li>
         <li>
-          <a href="/personal/chickenconspiracy" onmouseover={playRandomSound} onclick={playRandomSound}>The Great Chicken Conspiracy</a>
+          <a
+            href="/personal/chickenconspiracy"
+            onmouseover={playRandomSound}
+            onclick={playRandomSound}>The Great Chicken Conspiracy</a
+          >
         </li>
         <li>
-          <a href={getRandomPage()} onmouseover={playRandomSound} onclick={playRandomSound}>Surprise Me!</a>
+          <a
+            href="/personal/music"
+            onmouseover={playRandomSound}
+            onclick={playRandomSound}>Explore MY Music</a
+          >
+        </li>
+        <li>
+          <a
+            href={getRandomPage()}
+            onmouseover={playRandomSound}
+            onclick={playRandomSound}>Surprise Me!</a
+          >
         </li>
       </ul>
     </section>
