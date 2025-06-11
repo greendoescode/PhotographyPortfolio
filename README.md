@@ -1,12 +1,6 @@
 # Photography Portfolio
 
-Welcome to my photography portfolio! This project is built using [Svelte](https://svelte.dev/) and [Tailwind CSS](https://tailwindcss.com/). 
-
-## Table of Contents
-- [Installation](#installation)
-- [Usage](#usage)
-- [License](#license)
-
+My photography portfolio! This project is built using [Svelte](https://svelte.dev/) and [Tailwind CSS](https://tailwindcss.com/). 
 
 ## Installation
 
@@ -15,20 +9,20 @@ To get started with the project, clone the repository and install the dependenci
 ```sh
 git clone https://github.com/greendoescode/photographyportfolio.git
 cd photographyportfolio
-npm install
+pnpm install
 ```
 
 # Usage
 
 After installing the dependencies, you can start the development server:
 ```sh
-npm run dev
+pnpm run dev
 ```
 This will start a local server and you can view the project at http://localhost:5173.
 
 To build the project for production:
 ```sh
-npm run build
+pnpm run build
 ```
 
 
