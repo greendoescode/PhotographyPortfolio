@@ -1,5 +1,5 @@
 <script>
-  import { onMount } from "svelte"; 
+  import { onMount } from "svelte";
   import "$lib/global.css";
 
   const playHoverSound = () => {
@@ -16,7 +16,7 @@
   const isMobile = typeof window !== "undefined" && window.innerWidth <= 768;
 
   const moveContainer = () => {
-    if (isPaused || isMobile) return; 
+    if (isPaused || isMobile) return;
 
     const containerRect = container.getBoundingClientRect();
     const screenWidth = window.innerWidth;
@@ -55,12 +55,11 @@
         moveContainer();
       }
 
-
       window.addEventListener("resize", () => {
         if (window.innerWidth <= 768) {
-          isPaused = true; 
+          isPaused = true;
         } else {
-          isPaused = false; 
+          isPaused = false;
           moveContainer();
         }
       });
@@ -81,9 +80,7 @@
     <h1 class="font-mono text-2xl text-pink-500 mb-6">Credits</h1>
 
     <section class="credits-section">
-      <p class="description text-lg mb-4">
-        I'd like to thank:
-      </p>
+      <p class="description text-lg mb-4">I'd like to thank:</p>
 
       <ul class="credits-list">
         <li class="mb-2">
@@ -103,6 +100,15 @@
             onmouseover={playHoverSound}
           >
             FVM$ - The Halo Rat guy.
+          </a>
+        </li>
+        <li class="mb-2">
+          <a
+            href="https://old.reddit.com/r/gifs/comments/180q47d/i_drew_this_pixel_art_animation_using_19_colors/"
+            class="hover:text-green-400 text-green-300 text-base"
+            onmouseover={playHoverSound}
+          >
+            @anasabdin - creator of the best gif.
           </a>
         </li>
       </ul>

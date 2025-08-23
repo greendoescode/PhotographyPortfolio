@@ -47,6 +47,7 @@
       "/personal/timetravel",
       "/personal/chickenconspiracy",
       "/personal/halorat",
+      "/personal/lyrics",
     ];
     const randomIndex = Math.floor(Math.random() * pages.length);
     return pages[randomIndex];
@@ -126,6 +127,13 @@
             href="/personal/music"
             onmouseover={playRandomSound}
             onclick={playRandomSound}>Explore MY Music</a
+          >
+        </li>
+                <li>
+          <a
+            href="/personal/lyrics"
+            onmouseover={playRandomSound}
+            onclick={playRandomSound}>Lyrics and Poetry Corner</a
           >
         </li>
         <li>
