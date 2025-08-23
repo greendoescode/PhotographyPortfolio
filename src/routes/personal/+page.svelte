@@ -82,7 +82,7 @@
               before:absolute before:inset-0 before:animate-typewriter
               before:bg-black
               after:absolute after:inset-0 after:w-[0.125em] after:animate-caret
-              after:bg-stone-700 flicker-text heading-align-left"
+              after:bg-stone-700 heading-align-left"
     >
       Welcome to my page.
     </h1>
@@ -262,33 +262,12 @@
     text-shadow:
       0 0 15px #ff00ff,
       0 0 30px #ff00ff;
-    animation: glitch 2s infinite;
     text-align: left;
     white-space: normal;
     word-wrap: break-word;
     overflow-wrap: break-word;
   }
 
-  @keyframes glitch {
-    0% {
-      transform: translate(0px, 0px);
-    }
-    10% {
-      transform: translate(-5px, -5px);
-    }
-    20% {
-      transform: translate(5px, 5px);
-    }
-    30% {
-      transform: translate(-5px, 5px);
-    }
-    40% {
-      transform: translate(5px, -5px);
-    }
-    100% {
-      transform: translate(0px, 0px);
-    }
-  }
 
   .blog-posts a:hover,
   .random-pages a:hover {
