@@ -9,12 +9,11 @@
   let duration = "0:00";
 
   const tracks = [
-    { title: "Sentimental Man", src: "/audio/sentimentalman.wav" },
+    { title: "Sentimental Man", src: "/audio/sentimentalman.mp3" },
     { title: "Talk I Perchance?", src: "/audio/talkiperchance.mp3" },
     { title: "Scan I Perchance?", src: "/audio/scaniperchance.mp3" },
   ];
 
-  // Generate a stable random waveform pattern for each track
   let waveforms = tracks.map(() => {
     return Array.from(
       { length: 150 },
@@ -59,7 +58,6 @@
     }
   };
 
-  // Click waveform to seek
   function seek(event, index) {
     if (!currentAudio || isPlaying !== index) return;
     const rect = event.currentTarget.getBoundingClientRect();

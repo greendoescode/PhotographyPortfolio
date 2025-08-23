@@ -31,22 +31,19 @@
   }
 
   onMount(async () => {
-    // Load background image
     const img = new Image();
     img.src = "/images/_DSC2618.avif";
     img.onload = () => (bgImageLoaded = true);
 
-    // Get today's track
     const selectedTrack = getTrackOfTheDay();
 
-    // Fetch and parse audio metadata
     const res = await fetch(selectedTrack);
     const blob = await res.blob();
     const meta = await parseBlob(blob);
     metadata.title = meta.common.title || "Unknown Title";
     metadata.artist = meta.common.artist || "Unknown Artist";
 
-    // Setup audio
+
     audio = new Audio(URL.createObjectURL(blob));
     const audioCtx = new AudioContext();
     const source = audioCtx.createMediaElementSource(audio);

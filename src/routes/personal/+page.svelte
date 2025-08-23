@@ -88,18 +88,18 @@
     </h1>
 
     <section class="blog-section">
-      <u><h2 class="section-title">BLOG POSTS (COMING SOON)</h2></u>
+      <u><h2 class="section-title">BLOG POSTS</h2></u>
       <ul class="blog-posts">
         <li>
-          <a href="/blog/post-1" onmouseover={playHoverSound}>Lorem 1</a>
+          <a href="/personal/blog/1" onmouseover={playHoverSound}>My Tales</a>
         </li>
         <li>
-          <a href="/blog/post-2" onmouseover={playHoverSound}
-            >I Took Photos of Invisible Things</a
+          <a href="/personal/blog/2" onmouseover={playHoverSound}
+            >How Music Helps Me</a
           >
         </li>
         <li>
-          <a href="/blog/post-3" onmouseover={playHoverSound}>Lorem 2</a>
+          <a href="/personal/blog/" onmouseover={playHoverSound}>All Posts</a>
         </li>
       </ul>
     </section>
