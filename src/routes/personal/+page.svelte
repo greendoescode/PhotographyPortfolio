@@ -61,7 +61,7 @@
 </script>
 
 <svelte:head>
-  <title>My Weird Wonderland</title>
+  <title>My Page</title>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 </svelte:head>
@@ -84,7 +84,7 @@
               after:absolute after:inset-0 after:w-[0.125em] after:animate-caret
               after:bg-stone-700 flicker-text heading-align-left"
     >
-      Welcome to my Weird Wonderland.
+      Welcome to my page.
     </h1>
 
     <section class="blog-section">
