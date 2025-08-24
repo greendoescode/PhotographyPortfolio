@@ -5,6 +5,7 @@
   const posts = {
     1: { title: "My First Tales" },
     2: { title: "How Music Helps Me" },
+    3: { title: "Albums That Changed Me"}
   };
 
   const postEntries = Object.entries(posts);

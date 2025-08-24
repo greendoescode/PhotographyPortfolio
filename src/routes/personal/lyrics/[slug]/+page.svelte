@@ -3,7 +3,6 @@
   import { fade } from "svelte/transition";
   import { page } from "$app/stores";
 
-  // Lyrics pieces
   const lyrics = {
     "ashes-fall": {
       title: "Ashes Fall",
@@ -24,14 +23,12 @@
     }
   };
 
-  // Get slug from URL
   let slug = $page.params.slug;
   let piece = lyrics[slug] || {
     title: "Lyrics Not Found",
     content: [{ type: "text", value: "This piece doesn't exist." }]
   };
 
-  // Random background GIF
   const gifs = [
     "/giphy.gif",
     "/giphy2.gif",

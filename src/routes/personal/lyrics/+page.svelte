@@ -2,7 +2,6 @@
   import "$lib/global.css";
   import { fade } from "svelte/transition";
 
-  // Lyrics pieces
   const lyrics = {
     "ashes-fall": {
       title: "Ashes Fall"
@@ -10,7 +9,6 @@
     "free-falling": {
       title: "Free-Falling for You"
     }
-    // Add more pieces here as needed
   };
 </script>
 
