@@ -5,7 +5,8 @@
   const posts = {
     1: { title: "My First Tales" },
     2: { title: "How Music Helps Me" },
-    3: { title: "Albums That Changed Me"}
+    3: { title: "Albums That Changed Me"},
+    4: { title: "80’s Comedown Machine (Music Video Idea)"}
   };
 
   const postEntries = Object.entries(posts);

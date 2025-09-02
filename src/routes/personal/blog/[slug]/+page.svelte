@@ -192,6 +192,33 @@
         },
       ],
     },
+    4: {
+      title: "80's Comedown Machine (Music Video Idea)",
+      date: "2025-09-02",
+      content: [
+        {
+          type: "text",
+          value:
+            "The video in my head for '80's Comedown Machine' always starts with this guy, neon room, gun on the table. He slowly raises it to his head, super drawn out. Every time the 'tu-tu-tu-tut' drum hits, you're taken out of the room and into a memory. Little flashes of him being happy etc and then, snap, you're back in the room again.",
+        },
+        {
+          type: "text",
+          value:
+            "It builds and builds until that 'so pleaaaaaase' part. That's when it all tips over, not into joy but into sadness. The tension doesn't burst, it just drains out, heavy and slow, like sinking instead of rising. And then, right when you think it might hold there, the verse snaps back in. Room. Gun. Reality.",
+        },
+
+        {
+          type: "text",
+          value:
+            "Later, when the drums drop out for a bit, everything softens. The world he's in feels lighter, like maybe things are actually improving. Warm light, helpful hands reaching out, faces smiling. It's almost convincing. But then the drums come back and the illusion shatters. Reality pulls him down again. Like life, really.",
+        },
+        {
+          type: "text",
+          value:
+            "That's kind of the whole vibe, every time you think you've escaped, the song itself yanks you back. I like it because it's not clean or resolved. Just back and forth between hope and despair, memory and reality, over and over.",
+        }
+      ],
+    },
   };
 
   let slug = $page.params.slug;
