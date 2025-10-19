@@ -7,11 +7,11 @@
     "ashes-fall": {
       title: "Ashes Fall",
       content: [
-        { type: "text", value: "Verse 1:\nDust on the floor, and my hands won’t heal\nStatic on the radio, nothing feels real\nYou left your boots by the backdoor light\nSaid you’d be gone by Friday night" },
-        { type: "text", value: "Verse 2:\nCigarette ash in the windowsill\nDrunk on dreams I can’t sit still\nBroken glass on the basement floor\nI can’t remember what I’m fighting for" },
-        { type: "text", value: "Verse 3:\nMidnight call — I let it ring\nBurnt-out words don’t mean a thing\nYou get high, I fade to black\nStill chasing what I can’t get back" },
-        { type: "text", value: "Bridge:\nEmpty bed and a static screen\nI chase ghosts in every scene\nThe house still smells like your goodbye\nI light a match and let it die" },
-        { type: "text", value: "Ending:\nAshes fall where love once grew\nYour echo fades behind my door\nLetting go, I’m moving on\nFinding peace where I belong" }
+        { type: "text", value: "\nDust on the floor, and my hands won’t heal\nStatic on the radio, nothing feels real\nYou left your boots by the backdoor light\nSaid you’d be gone by Friday night" },
+        { type: "text", value: "\nCigarette ash in the windowsill\nDrunk on dreams I can’t sit still\nBroken glass on the basement floor\nI can’t remember what I’m fighting for" },
+        { type: "text", value: "\nMidnight call — I let it ring\nBurnt-out words don’t mean a thing\nYou get high, I fade to black\nStill chasing what I can’t get back" },
+        { type: "text", value: "\nEmpty bed and a static screen\nI chase ghosts in every scene\nThe house still smells like your goodbye\nI light a match and let it die" },
+        { type: "text", value: "\nAshes fall where love once grew\nYour echo fades behind my door\nLetting go, I’m moving on\nFinding peace where I belong" }
       ]
     },
     "free-falling": {
