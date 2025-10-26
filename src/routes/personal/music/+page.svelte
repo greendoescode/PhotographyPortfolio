@@ -9,7 +9,7 @@
   let duration = "0:00";
 
   const tracks = [
-    { title: "Sentimental Man", src: "/audio/sentimentalman.mp3" },
+    { title: "I Left the Radio On So You'd Think I Was Still There", src: "/audio/I_Left_the_Radio_On_So_Youd_Think_I_Was_Still_There.mp3" },
     { title: "Talk I Perchance?", src: "/audio/talkiperchance.mp3" },
     { title: "Scan I Perchance?", src: "/audio/scaniperchance.mp3" },
   ];
