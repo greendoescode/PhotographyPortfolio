@@ -8,74 +8,39 @@
   <meta charset="UTF-8" />
 </svelte:head>
 
-<div
-  class="divbody bg-cover bg-center min-h-screen flex flex-col justify-center items-center"
-  transition:fade|global={{ duration: 250 }}
+<main
+  class="min-h-screen bg-neutral-950 text-neutral-100 flex flex-col justify-center items-center px-6"
+  transition:fade={{ duration: 200 }}
 >
-  <div class="container justify-center">
-    <h1
-      class="relative w-[max-content] font-mono before:absolute before:inset-0 before:animate-typewriter before:bg-black after:absolute after:inset-0 after:w-[0.125em] after:animate-caret after:bg-stone-700"
-    >
-      Welcome to My Page
+  <div class="max-w-md w-full flex flex-col items-center gap-8">
+    <h1 class="text-xl font-light tracking-wide text-neutral-200">
+      Leo Hanney
     </h1>
-    <a href="https://volaris.leohanney.com">Volaris</a>
-    <a href="/photography">Photography</a>
-    <a href="/personal">Personal</a>
-    <a
-      href="https://github.com/greendoescode"
-      target="_blank"
-      rel="noopener noreferrer">Github</a
-    >
+
+    <nav class="flex flex-col sm:flex-row gap-4 sm:gap-6 text-sm">
+      <a href="https://volaris.leohanney.com" class="nav-link">Volaris</a>
+      <a href="/photography" class="nav-link">Photography</a>
+      <a href="/personal" class="nav-link">Personal</a>
+      <a
+        href="https://github.com/greendoescode"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="nav-link"
+      >
+        GitHub
+      </a>
+    </nav>
   </div>
-</div>
+</main>
 
 <style>
-  .divbody {
-    margin: 0;
-    padding: 0;
-    height: 100%;
-    width: 100%;
-    font-family: Arial, sans-serif;
-    color: #e0e0e0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background: #000;
-  }
-
-  .container {
-    display: flex;
-    flex-direction: column;
-    padding: 20px;
-    border: 2px solid #00ff00;
-    background: #000;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.8);
-  }
-
-  h1 {
-    padding-left: 10px;
-    font-size: 2em;
-    text-transform: uppercase;
-    margin-bottom: 20px;
-    color: #00ff00;
-    text-shadow: 0 0 5px #00ff00;
-  }
-
-  a {
-    color: #00ff00;
+  .nav-link {
+    color: #a3a3a3;
     text-decoration: none;
-    margin: 5px 10px;
-    padding: 5px 10px;
-    border: 1px solid #00ff00;
-    border-radius: 4px;
-    font-size: 1em;
-    transition:
-      background-color 0.3s,
-      color 0.3s;
+    transition: color 0.2s ease;
   }
 
-  a:hover {
-    background-color: #00ff00;
-    color: #000;
+  .nav-link:hover {
+    color: #ffffff;
   }
 </style>

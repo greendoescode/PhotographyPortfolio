@@ -168,7 +168,7 @@
         {
           type: "text",
           value:
-            "Will Wood's music isn't really tied to one album for me — it's more about the person I listened to it with. Because of that, it'll always hold a special spot, even if it's less about the songs themselves and more about the moments and people around them.",
+            "Will Wood's music isn't really tied to one album for me - it's more about the person I listened to it with. Because of that, it'll always hold a special spot, even if it's less about the songs themselves and more about the moments and people around them.",
         },
         {
           type: "text",

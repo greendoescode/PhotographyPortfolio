@@ -24,7 +24,7 @@
       { theory: "The reason the chicken crossed the road in the first place was to plant a bug in your neighbor’s backyard.", real: true },
       { theory: "The Chicken Illuminati controls the world’s stock markets. Every drop or rise is a result of their influence.", real: true },
       { theory: "The eggs in your fridge? They were planted by a chicken spy to track your eating habits.", real: false },
-      { theory: "Chickens invented the first form of communication—cluck-speak. It’s hidden in the deepest archives of history.", real: true },
+      { theory: "Chickens invented the first form of communication-cluck-speak. It’s hidden in the deepest archives of history.", real: true },
       { theory: "Chickens are planning to replace all politicians with their own kind. It’s only a matter of time.", real: false },
       { theory: "Chickens control the world’s food supply, and they’re making sure we get less protein than we need.", real: true },
       { theory: "The secret to the chicken’s success lies in their ability to teleport. They’re always one step ahead.", real: true },
