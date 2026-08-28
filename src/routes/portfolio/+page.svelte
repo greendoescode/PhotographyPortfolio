@@ -5,39 +5,65 @@
     name: string;
     link: string;
     thumbnailUrl: string;
+    lqipUrl: string;
   }
 
-  // Pre-computed collection data - removes runtime URL parsing and fetch() round-trips
   const collections: Collection[] = [
     {
       name: "New Picks",
       link: "/portfolio/newpicks",
-      thumbnailUrl: "/images/newpicks/DSC_2719.avif"
+      thumbnailUrl: "/images/newpicks/DSC_2719.avif",
+      lqipUrl: "/images/newpicks/DSC_2719_lq.avif"
     },
     {
       name: "Twilight Toboganning",
       link: "/portfolio/twilightoboganning",
-      thumbnailUrl: "/images/twilightoboganning/image1.avif"
+      thumbnailUrl: "/images/twilightoboganning/image1.avif",
+      lqipUrl: "/images/twilightoboganning/image1_lq.avif"
     },
     {
       name: "Top Picks",
       link: "/portfolio/picks",
-      thumbnailUrl: "/images/picks/image1.avif"
+      thumbnailUrl: "/images/picks/image1.avif",
+      lqipUrl: "/images/picks/image1_lq.avif"
     },
     {
       name: "Mendip Ski",
       link: "/portfolio/mendipski",
-      thumbnailUrl: "/images/mendipski/image1.avif"
+      thumbnailUrl: "/images/mendipski/image1.avif",
+      lqipUrl: "/images/mendipski/image1_lq.avif"
     },
     {
       name: "Windy Tree",
       link: "/portfolio/windytree",
-      thumbnailUrl: "/images/windytree/image1.avif"
+      thumbnailUrl: "/images/windytree/image1.avif",
+      lqipUrl: "/images/windytree/image1_lq.avif"
     }
   ];
 
   let bgLoaded = $state<boolean>(false);
+  let loadedThumbnails = $state<Record<string, boolean>>({});
   const year: number = new Date().getFullYear();
+
+  function handleBgDecode(node: HTMLImageElement) {
+    const trigger = () => {
+      node.decode()
+        .then(() => (bgLoaded = true))
+        .catch(() => (bgLoaded = true));
+    };
+    if (node.complete) trigger();
+    else node.onload = trigger;
+  }
+
+  function handleThumbnailDecode(node: HTMLImageElement, url: string) {
+    const trigger = () => {
+      node.decode()
+        .then(() => (loadedThumbnails[url] = true))
+        .catch(() => (loadedThumbnails[url] = true));
+    };
+    if (node.complete) trigger();
+    else node.onload = trigger;
+  }
 </script>
 
 <svelte:head>
@@ -45,19 +71,12 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Leo Hanney - Collections</title>
 
-  <!-- Preconnect to Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="anonymous" />
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500&display=swap" rel="stylesheet" />
 
   <!-- Preload LCP Background Image -->
-  <link rel="preload" href="/images/_DSC3786.avif" as="image" type="image/avif" />
-
-  <!-- Prefetch collection route data for instant navigation on click -->
-  {#each collections as { link, thumbnailUrl }}
-    <link rel="prefetch" href={link} />
-    <link rel="preload" href={thumbnailUrl} as="image" type="image/avif" />
-  {/each}
+  <link rel="preload" href="/images/_DSC3786.avif" as="image" type="image/avif" fetchpriority="high" />
 </svelte:head>
 
 <main class="font-['Poppins'] relative min-h-screen w-full bg-neutral-950 text-neutral-100 flex flex-col justify-between p-8 md:p-14 select-none">
@@ -66,13 +85,14 @@
     <img
       src="/images/_DSC3786.avif"
       alt="Portfolio Background"
-      loading="eager"
       decoding="async"
       fetchpriority="high"
-      class="h-full w-full object-cover transition-opacity duration-700 ease-out opacity-20"
+      class="h-full w-full object-cover transform-gpu transition-all duration-1000 ease-in-out will-change-[opacity,filter]"
       class:opacity-0={!bgLoaded}
+      class:blur-md={!bgLoaded}
       class:opacity-20={bgLoaded}
-      onload={() => (bgLoaded = true)}
+      class:blur-0={bgLoaded}
+      use:handleBgDecode
     />
     <div class="absolute inset-0 bg-gradient-to-t from-neutral-950 via-neutral-950/70 to-neutral-950/40"></div>
   </div>
@@ -98,20 +118,38 @@
     </div>
 
     <div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
-      {#each collections as { name, link, thumbnailUrl }}
+      {#each collections as { name, link, thumbnailUrl, lqipUrl }}
+        {@const isLoaded = loadedThumbnails[thumbnailUrl]}
+        
         <a
           href={link}
           data-sveltekit-preload-data="hover"
           class="group relative block overflow-hidden rounded-lg bg-neutral-900/50 border border-white/10 backdrop-blur-md transition-all duration-300 hover:border-white/40 hover:-translate-y-1"
         >
           <!-- Thumbnail Aspect Container -->
-          <div class="aspect-[4/3] w-full overflow-hidden bg-neutral-950/80 relative">
+          <div class="aspect-[4/3] w-full overflow-hidden bg-neutral-950 relative">
+            
+            <!-- 1. Low-Res Placeholder (Visually matches initial high-res blur) -->
+            <img
+              src={lqipUrl}
+              alt=""
+              aria-hidden="true"
+              class="absolute inset-0 h-full w-full object-cover blur-md scale-105 transform-gpu opacity-60"
+            />
+
+            <!-- 2. High-Res Image (Decodes off-thread, then dissolves from blur-md -> blur-0) -->
             <img
               src={thumbnailUrl}
               alt={name}
-              loading="eager"
               decoding="async"
-              class="object-cover w-full h-full transition duration-500 ease-out group-hover:scale-105 opacity-80 group-hover:opacity-100"
+              class="absolute inset-0 object-cover w-full h-full transform-gpu transition-all duration-1000 ease-in-out will-change-[opacity,filter,transform]"
+              class:opacity-0={!isLoaded}
+              class:blur-md={!isLoaded}
+              class:opacity-80={isLoaded}
+              class:blur-0={isLoaded}
+              class:group-hover:scale-105={isLoaded}
+              class:group-hover:opacity-100={isLoaded}
+              use:handleThumbnailDecode={thumbnailUrl}
             />
           </div>
 
