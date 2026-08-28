@@ -2,9 +2,17 @@
   import { page } from "$app/state";
   import "$lib/global.css";
 
+  let audio;
+  if (typeof window !== "undefined") {
+    audio = new Audio("/beep.mp3");
+    audio.volume = 0.2;
+  }
+
   const playHoverSound = () => {
-    const audio = new Audio("/beep.mp3");
-    audio.play();
+    if (audio) {
+      audio.currentTime = 0;
+      audio.play().catch(() => {});
+    }
   };
 
   const getRandomPage = () => {
@@ -13,196 +21,255 @@
       "/personal/chickenconspiracy",
       "/personal/halorat"
     ];
-    const randomIndex = Math.floor(Math.random() * pages.length);
-    return pages[randomIndex];
+    return pages[Math.floor(Math.random() * pages.length)];
   };
+
+  // Dynamic error descriptions based on HTTP status code
+  const getErrorMeta = (status) => {
+    switch (status) {
+      case 404:
+        return {
+          title: "YOU ARE LOST",
+          desc: "It seems you've wandered too far into the unknown void. No worries, though!"
+        };
+      case 500:
+        return {
+          title: "SERVER MELTDOWN",
+          desc: "Our internal servers ran into a glitch in the matrix. Something broke on our end."
+        };
+      case 403:
+        return {
+          title: "ACCESS DENIED",
+          desc: "You don't have the cyber clearance required to enter this sector."
+        };
+      default:
+        return {
+          title: "SYSTEM ANOMALY",
+          desc: "An unexpected glitch occurred in the system timeline."
+        };
+    }
+  };
+
+  const currentError = $derived(getErrorMeta(page.status));
 </script>
 
 <svelte:head>
-  <title>{page.status} - Lost in the Weird Wonderland</title>
+  <title>{page.status} - {currentError.title}</title>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 </svelte:head>
 
-<div
-  class="divbody bg-cover bg-center min-h-screen flex flex-col justify-center items-center weird-background"
->
-  <div class="container justify-center weird-container">
-    <h1
-      class="relative w-full max-w-[800px] font-mono
-                before:absolute before:inset-0 before:animate-typewriter
-                before:bg-black
-                after:absolute after:inset-0 after:w-[0.125em] after:animate-caret
-                after:bg-stone-700 flicker-text heading-align-left"
-    >
-      {page.status} - You are lost.
+<div class="divbody weird-background">
+  <div class="cyber-card">
+    <div class="scanlines"></div>
+
+    <div class="card-header">
+      <span class="status-indicator"></span>
+      <span class="system-tag">SYSTEM_ALERT // STATUS_{page.status}</span>
+    </div>
+
+    <!-- Dynamic Status Title -->
+    <h1 class="glow-title">
+      {page.status} <span class="highlight">- {currentError.title}</span>
     </h1>
 
-    <p class="description text-center text-lg mt-4">
-      It seems you've wandered too far into the unknown. No worries, though!
+    <!-- Shows custom message if thrown via error(), otherwise uses preset description -->
+    <p class="description">
+      {page.error?.message && page.error.message !== 'Not Found' 
+        ? page.error.message 
+        : currentError.desc}
     </p>
 
-    <section class="options-section mt-8">
-      <u><h2 class="section-title">What would you like to do?</h2></u>
-      <ul class="options-list">
-        <li>
-          <a href="/" onmouseover={playHoverSound}>Go back to safety (Home)</a>
-        </li>
-        <li>
-          <a
-            href={getRandomPage()}
-            onmouseover={playHoverSound}
-            onclick={playHoverSound}
-          >
-            Explore a random page
-          </a>
-        </li>
-      </ul>
-    </section>
+    <div class="options-section">
+      <p class="section-title">SELECT_NAVIGATION_PATH:</p>
+      <div class="button-group">
+        <a 
+          href="/" 
+          onmouseenter={playHoverSound} 
+          class="cyber-btn"
+        >
+          <span class="btn-arrow">&gt;</span> Return to Safety (Home)
+        </a>
+        
+        <a
+          href={getRandomPage()}
+          onmouseenter={playHoverSound}
+          onclick={playHoverSound}
+          class="cyber-btn primary"
+        >
+          <span class="btn-arrow">&gt;</span> Explore Random Anomaly
+        </a>
+      </div>
+    </div>
   </div>
 </div>
 
 <style>
   .divbody {
     margin: 0;
-    padding: 0;
-    height: 100%;
+    padding: 1.5rem;
+    min-height: 100vh;
     width: 100%;
-    font-family: "Courier New", monospace;
+    font-family: "Courier New", Courier, monospace;
     color: #e0e0e0;
     display: flex;
     justify-content: center;
     align-items: center;
     background: #000;
     overflow: hidden;
+    box-sizing: border-box;
   }
 
   .weird-background {
     background: url("/giphy4.gif") no-repeat center center fixed;
     background-size: cover;
-    animation:
-      weirdAnimation 20s infinite,
-      gentleFlicker 5s infinite;
   }
 
-  @keyframes weirdAnimation {
-    0% {
-      background-color: #ff00ff;
-    }
-    50% {
-      background-color: #00ffff;
-    }
-    100% {
-      background-color: #ff00ff;
-    }
-  }
-
-  @keyframes gentleFlicker {
-    0% {
-      opacity: 1;
-    }
-    10% {
-      opacity: 0.95;
-    }
-    20% {
-      opacity: 1;
-    }
-    30% {
-      opacity: 0.98;
-    }
-    40% {
-      opacity: 1;
-    }
-    50% {
-      opacity: 0.97;
-    }
-    60% {
-      opacity: 1;
-    }
-    100% {
-      opacity: 1;
-    }
-  }
-
-  .container {
-    display: flex;
-    flex-direction: column;
-    padding: 20px;
-    border: 2px solid #ff00ff;
-    background: #000;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.8);
-    max-width: 800px;
+  .cyber-card {
+    position: relative;
     width: 100%;
+    max-width: 680px;
+    padding: 2.5rem;
+    background: rgba(12, 6, 24, 0.85);
+    border: 1px solid rgba(255, 0, 255, 0.6);
+    border-radius: 12px;
+    box-shadow: 
+      0 0 30px rgba(255, 0, 255, 0.3),
+      inset 0 0 20px rgba(255, 0, 255, 0.15);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    overflow: hidden;
   }
 
-  .container:hover {
-    animation-play-state: paused;
+  .scanlines {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+      to bottom,
+      rgba(255,255,255,0),
+      rgba(255,255,255,0) 50%,
+      rgba(0, 0, 0, 0.3) 50%,
+      rgba(0, 0, 0, 0.3)
+    );
+    background-size: 100% 4px;
+    pointer-events: none;
+    opacity: 0.7;
+    z-index: 1;
   }
 
+  .card-header {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 1.5rem;
+    font-size: 0.75rem;
+    letter-spacing: 0.15em;
+    color: #00ffff;
+    text-shadow: 0 0 8px rgba(0, 255, 255, 0.6);
+  }
 
-  h1 {
-    font-size: 2em;
+  .status-indicator {
+    width: 8px;
+    height: 8px;
+    background-color: #ff00ff;
+    border-radius: 50%;
+    box-shadow: 0 0 10px #ff00ff;
+    animation: pulse 1.5s infinite alternate;
+  }
+
+  @keyframes pulse {
+    from { opacity: 0.4; }
+    to { opacity: 1; }
+  }
+
+  .glow-title {
+    font-size: 1.8rem;
+    font-weight: 700;
     text-transform: uppercase;
-    margin-bottom: 20px;
-    color: #ff00ff;
-    text-shadow:
-      0 0 15px #ff00ff,
-      0 0 30px #ff00ff;
-    text-align: left;
-    white-space: normal;
-    word-wrap: break-word;
-    overflow-wrap: break-word;
+    margin: 0 0 1rem 0;
+    color: #ffffff;
   }
 
-  .options-list a:hover {
-    color: #00ff00;
-    transform: scale(1.2);
-    text-decoration: underline;
+  .highlight {
+    color: #ff00ff;
+    text-shadow: 0 0 12px #ff00ff, 0 0 25px rgba(255, 0, 255, 0.6);
+  }
+
+  .description {
+    font-size: 1rem;
+    line-height: 1.6;
+    color: #d1d5db;
+    margin-bottom: 2rem;
   }
 
   .options-section {
-    margin-top: 40px;
+    position: relative;
+    z-index: 2;
   }
 
-  .options-list {
-    list-style: none;
-    padding: 0;
+  .section-title {
+    font-size: 0.8rem;
+    letter-spacing: 0.1em;
+    color: #9ca3af;
+    margin-bottom: 1rem;
   }
 
-  .options-list li {
-    margin: 10px 0;
+  .button-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
   }
 
-  @media (max-width: 768px) {
-    .container {
-      max-width: 90%;
-      padding: 15px;
-    }
-
-    h1 {
-      font-size: 1.5em;
-    }
-
-    .weird-background {
-      animation: none;
-    }
-
-    .container {
-      animation: none;
-    }
-
-    h1 {
-      animation: none;
-    }
+  .cyber-btn {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 0.85rem 1.25rem;
+    background: rgba(255, 0, 255, 0.05);
+    border: 1px solid rgba(255, 0, 255, 0.4);
+    border-radius: 6px;
+    color: #ffffff;
+    text-decoration: none;
+    font-size: 0.95rem;
+    letter-spacing: 0.05em;
+    transition: all 0.2s ease-in-out;
   }
 
-  @media (max-width: 480px) {
-    .container {
-      padding: 10px;
+  .cyber-btn.primary {
+    border-color: rgba(0, 255, 255, 0.4);
+    background: rgba(0, 255, 255, 0.05);
+  }
+
+  .cyber-btn:hover {
+    background: rgba(255, 0, 255, 0.25);
+    border-color: #ff00ff;
+    box-shadow: 0 0 15px rgba(255, 0, 255, 0.5);
+    transform: translateX(6px);
+  }
+
+  .cyber-btn.primary:hover {
+    background: rgba(0, 255, 255, 0.25);
+    border-color: #00ffff;
+    box-shadow: 0 0 15px rgba(0, 255, 255, 0.5);
+    color: #00ffff;
+  }
+
+  .btn-arrow {
+    color: #ff00ff;
+    font-weight: bold;
+  }
+
+  .cyber-btn.primary .btn-arrow {
+    color: #00ffff;
+  }
+
+  @media (max-width: 640px) {
+    .cyber-card {
+      padding: 1.5rem;
     }
 
-    h1 {
-      font-size: 1.2em;
+    .glow-title {
+      font-size: 1.3rem;
     }
   }
 </style>
