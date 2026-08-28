@@ -1,13 +1,20 @@
 <script lang="ts">
-  interface Collection {
+  interface Props {
     name: string;
     link: string;
     thumbnailUrl: string;
     lqipUrl: string;
   }
 
-  let { name, link, thumbnailUrl, lqipUrl }: Collection = $props();
+  let { name, link, thumbnailUrl, lqipUrl }: Props = $props();
   let isLoaded = $state(false);
+
+  // Solves the cached vs. uncached race condition on frame 1
+  function setupImage(node: HTMLImageElement) {
+    if (node.complete && node.naturalWidth > 0) {
+      isLoaded = true;
+    }
+  }
 </script>
 
 <a
@@ -15,25 +22,27 @@
   data-sveltekit-preload-data="hover"
   class="group relative block overflow-hidden rounded-lg bg-neutral-900 border border-white/10 transition-transform duration-200 hover:border-white/40 hover:-translate-y-1"
 >
-  <div class="aspect-[4/3] w-full overflow-hidden bg-neutral-950 relative">
+  <div class="aspect-[4/3] w-full overflow-hidden bg-neutral-900 relative">
     
-    <!-- 1. Low-Res Placeholder: PERMANENTLY VISIBLE in the back layer -->
+    <!-- 1. Low-Res Placeholder: Permanently visible in layer 0 -->
     <img
       src={lqipUrl}
       alt=""
       aria-hidden="true"
       loading="eager"
+      decoding="async"
       class="absolute inset-0 h-full w-full object-cover blur-md scale-110 pointer-events-none"
     />
 
-    <!-- 2. High-Res Image: Fades IN over the top layer -->
+    <!-- 2. High-Res Image: Fades smoothly over layer 0 once ready -->
     <img
+      use:setupImage
       src={thumbnailUrl}
       alt={name}
       loading="lazy"
       decoding="async"
       onload={() => (isLoaded = true)}
-      class="absolute inset-0 h-full w-full object-cover opacity-0 transition-opacity duration-500 ease-out"
+      class="absolute inset-0 h-full w-full object-cover opacity-0 transition-opacity duration-700 ease-out"
       class:opacity-100={isLoaded}
       class:group-hover:scale-105={isLoaded}
     />

@@ -35,7 +35,14 @@
     }
   ];
 
+  let bgLoaded = $state(false);
   const year = new Date().getFullYear();
+
+  function setupBg(node: HTMLImageElement) {
+    if (node.complete && node.naturalWidth > 0) {
+      bgLoaded = true;
+    }
+  }
 </script>
 
 <svelte:head>
@@ -51,13 +58,35 @@
 <main class="font-['Poppins'] relative min-h-screen w-full bg-neutral-950 text-neutral-100 flex flex-col justify-between p-8 md:p-14 select-none">
   <!-- Background Image Overlay -->
   <div class="fixed inset-0 z-0 overflow-hidden pointer-events-none">
-    <img
-      src="/images/_DSC3786.avif"
-      alt="Portfolio Background"
-      loading="eager"
-      decoding="async"
-      class="h-full w-full object-cover opacity-20"
-    />
+    
+    <!-- Image Wrapper: Locks the total brightness to 20% -->
+    <div class="absolute inset-0 opacity-20">
+      
+      <!-- 1. Background LQIP: Highest priority, loads instantly -->
+      <img
+        src="/images/DSC3786_lq.avif"
+        alt=""
+        aria-hidden="true"
+        fetchpriority="high"
+        decoding="async"
+        class="absolute inset-0 h-full w-full object-cover blur-xl scale-110"
+      />
+      
+      <!-- 2. Background High-Res: Fades in to 100% (of the 20% wrapper) -->
+      <img
+        use:setupBg
+        src="/images/_DSC3786.avif"
+        alt="Portfolio Background"
+        loading="eager"
+        decoding="async"
+        onload={() => (bgLoaded = true)}
+        class="absolute inset-0 h-full w-full object-cover transition-opacity duration-1000 ease-out opacity-0"
+        class:opacity-100={bgLoaded}
+      />
+      
+    </div>
+
+    <!-- Gradient sits on top of the images -->
     <div class="absolute inset-0 bg-gradient-to-t from-neutral-950 via-neutral-950/70 to-neutral-950/40"></div>
   </div>
 
